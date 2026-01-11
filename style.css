@@ -1,0 +1,24 @@
+body {
+font-family: Arial;
+background:#f4f6fa;
+padding:20px;
+}
+
+header {
+background:#1e3a8a;
+color:white;
+padding:40px;
+text-align:center;
+}
+
+.btn {
+background:#2563eb;
+color:white;
+padding:10px 20px;
+text-decoration:none;
+border-radius:6px;
+}
+
+h1,h2 {
+color:#1e40af;
+}
