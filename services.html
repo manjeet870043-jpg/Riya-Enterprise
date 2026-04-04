@@ -154,14 +154,19 @@ footer{
 
   </div>
 
-  <!-- QR SECTION -->
-  <div class="qr-section">
-    <h2>Scan & Connect</h2>
-    <p>Scan the QR code to contact us instantly</p>
+ <div id="paymentBox" class="payment-box">
+  <div class="payment-content">
+    <h2>Complete Payment</h2>
 
-    <!-- Yaha apna QR image lagana -->
     <img src="qr.png" alt="QR Code">
 
+    <p>Scan and pay ₹499</p>
+
+    <input type="file" id="screenshot">
+
+    <button onclick="verifyPayment()">Verify Payment</button>
+
+    <p id="msg"></p>
   </div>
   <div class="pricing">
   <h2>Service Pricing</h2>
