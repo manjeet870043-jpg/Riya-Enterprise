@@ -195,6 +195,21 @@ footer{
 <footer>
   © 2025 Riya Enterprise. All rights reserved.
 </footer>
+<script>
+function showPayment(){
+  document.getElementById("paymentBox").style.display = "flex";
+}
 
+function verifyPayment(){
+  let file = document.getElementById("screenshot").files.length;
+
+  if(file === 0){
+    document.getElementById("msg").innerHTML = "❌ Please upload payment screenshot";
+  }else{
+    document.getElementById("msg").innerHTML =
+    "✅ Payment submitted!<br>Now send screenshot to Telegram: @riya4363 for verification.";
+  }
+}
+</script>
 </body>
 </html>
