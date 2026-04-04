@@ -142,6 +142,9 @@ footer{
 
 <!-- POPUP (ONLY ON CLICK) -->
 <div id="paymentBox" class="payment-box">
+
+  <span class="close-btn" onclick="closePayment()">✖</span>
+
   <div class="payment-content">
 
     <h2>Complete Payment</h2>
@@ -152,12 +155,9 @@ footer{
 
     <input type="file">
 
-    <button onclick="verifyPayment()">Verify</button>
+    <button onclick="verifyPayment()">Verify Payment</button>
 
     <p id="msg"></p>
-
-    <br>
-    <button onclick="closePayment()">Close</button>
 
   </div>
 </div>
