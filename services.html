@@ -20,7 +20,6 @@ body{
   color:#fff;
 }
 
-/* NAV */
 nav{
   display:flex;
   justify-content:space-between;
@@ -34,29 +33,16 @@ nav a{
   text-decoration:none;
 }
 
-nav a.active,
 nav a:hover{
   color:#00c6ff;
 }
 
-/* SECTION */
 .section{
   max-width:1100px;
   margin:80px auto;
   text-align:center;
 }
 
-.section h1{
-  font-size:40px;
-  color:#60a5fa;
-}
-
-.subtitle{
-  margin-top:10px;
-  opacity:.8;
-}
-
-/* CARDS */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -68,44 +54,57 @@ nav a:hover{
   background:rgba(255,255,255,0.05);
   border-radius:20px;
   padding:30px;
-  backdrop-filter:blur(10px);
-  box-shadow:0 0 30px rgba(0,0,0,0.5);
   transition:0.4s;
 }
 
 .card:hover{
-  transform:translateY(-10px) scale(1.05);
-  box-shadow:0 0 50px rgba(0,198,255,0.6);
+  transform:translateY(-10px);
 }
 
-.card h3{
-  color:#00c6ff;
-  margin-bottom:10px;
-}
-
-/* QR SECTION */
-.qr-section{
+.pricing{
   margin-top:80px;
-  text-align:center;
 }
 
-.qr-section img{
-  width:180px;
-  border-radius:15px;
+.price-box{
   margin-top:20px;
-  box-shadow:0 0 30px rgba(0,198,255,0.5);
 }
 
-.qr-section p{
-  margin-top:15px;
-  opacity:.8;
+.price-box button{
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  background:#00c6ff;
+  color:white;
+  cursor:pointer;
 }
 
-/* FOOTER */
+/* POPUP */
+.payment-box{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+}
+
+.payment-content{
+  background:#020617;
+  padding:30px;
+  border-radius:20px;
+}
+
+.payment-content img{
+  width:200px;
+  margin:20px 0;
+}
+
 footer{
   text-align:center;
   padding:30px;
-  opacity:.6;
 }
 </style>
 </head>
@@ -116,105 +115,71 @@ footer{
   <div><b>Riya Enterprise</b></div>
   <div>
     <a href="index.html">Home</a>
-    <a href="services.html" class="active">Services</a>
+    <a href="services.html">Services</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
 
 <section class="section">
-  <h1>Our Services</h1>
-  <p class="subtitle">Professional digital solutions to grow your brand 🚀</p>
 
-  <div class="cards">
+<h1>Our Services</h1>
 
-    <div class="card">
-      <h3>Instagram Growth</h3>
-      <p>Increase followers, likes and engagement with targeted promotion.</p>
-    </div>
-
-    <div class="card">
-      <h3>Telegram Promotion</h3>
-      <p>Boost your Telegram channel reach with active audience.</p>
-    </div>
-
-    <div class="card">
-      <h3>Social Media Marketing</h3>
-      <p>Complete marketing strategies for brand growth.</p>
-    </div>
-
-    <div class="card">
-      <h3>Paid Campaigns</h3>
-      <p>Run ads and campaigns to generate real traffic & leads.</p>
-    </div>
-
-    <div class="card">
-      <h3>Content Strategy</h3>
-      <p>We help you create viral content and growth plans.</p>
-    </div>
-
-  </div>
-
- <div id="paymentBox" class="payment-box">
-  <div class="payment-content">
-    <h2>Complete Payment</h2>
-
-    <img src="qr.png" alt="QR Code">
-
-    <p>Scan and pay ₹499</p>
-
-    <input type="file" id="screenshot">
-
-    <button onclick="verifyPayment()">Verify Payment</button>
-
-    <p id="msg"></p>
-  </div>
-  <div class="pricing">
-  <h2>Service Pricing</h2>
-  <p>All services are available at a fixed price</p>
-
-  <div class="price-box">
-    <h3>₹499 / Service</h3>
-    <button onclick="showPayment()">Pay Now</button>
-  </div>
+<div class="cards">
+  <div class="card"><h3>Instagram Growth</h3></div>
+  <div class="card"><h3>Telegram Promotion</h3></div>
+  <div class="card"><h3>Social Media Marketing</h3></div>
+  <div class="card"><h3>Paid Campaigns</h3></div>
 </div>
 
-<!-- PAYMENT POPUP -->
-<div id="paymentBox" class="payment-box">
-  <div class="payment-content">
-    <h2>Complete Payment</h2>
-
-    <img src="qr.png" alt="QR Code">
-
-    <p>Scan and pay ₹499</p>
-
-    <input type="file" id="screenshot">
-
-    <button onclick="verifyPayment()">Verify Payment</button>
-
-    <p id="msg"></p>
-  </div>
+<!-- PRICING -->
+<div class="pricing">
+  <h2>Service Pricing</h2>
+  <h3>₹499 / Service</h3>
+  <button onclick="showPayment()">Pay Now</button>
 </div>
 
 </section>
 
+<!-- POPUP (ONLY ON CLICK) -->
+<div id="paymentBox" class="payment-box">
+  <div class="payment-content">
+
+    <h2>Complete Payment</h2>
+
+    <img src="qr.png">
+
+    <p>Scan & Pay ₹499</p>
+
+    <input type="file">
+
+    <button onclick="verifyPayment()">Verify</button>
+
+    <p id="msg"></p>
+
+    <br>
+    <button onclick="closePayment()">Close</button>
+
+  </div>
+</div>
+
 <footer>
-  © 2025 Riya Enterprise. All rights reserved.
+© 2025 Riya Enterprise
 </footer>
+
 <script>
 function showPayment(){
   document.getElementById("paymentBox").style.display = "flex";
 }
 
-function verifyPayment(){
-  let file = document.getElementById("screenshot").files.length;
+function closePayment(){
+  document.getElementById("paymentBox").style.display = "none";
+}
 
-  if(file === 0){
-    document.getElementById("msg").innerHTML = "❌ Please upload payment screenshot";
-  }else{
-    document.getElementById("msg").innerHTML =
-    "✅ Payment submitted!<br>Now send screenshot to Telegram: @riya4363 for verification.";
-  }
+function verifyPayment(){
+  document.getElementById("msg").innerHTML =
+  "Send screenshot to Telegram: @riya4363";
 }
 </script>
+
 </body>
 </html>
